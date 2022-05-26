@@ -17,7 +17,9 @@ export default {
 
 export const AllButtons = () => (
   <Wrapper>
-    <Button variant="primary">Primary</Button>
+    <Button onClick={() => console.log("coucou")} variant="primary">
+      Primary
+    </Button>
     <Button variant="secondary">Secondary</Button>
     <Button variant="tertiary">Tertiary</Button>
     <Button variant="outline">Outline</Button>

@@ -315,7 +315,6 @@ const StyledButton = styled.button<ButtonProps>`
 export interface ButtonProps {
   isLoading?: boolean;
   loadingText?: ReactNode;
-  isLink?: boolean;
   variant?: valueof<typeof VARIANTS>;
   size?: valueof<typeof SIZES>;
   isDisabled?: boolean;
@@ -329,19 +328,18 @@ export const Button: FC<ButtonProps> = ({
   isDisabled,
   isLoading,
   loadingText,
-  isLink,
   children,
   ...props
 }) => {
   const buttonInner = (
     <>
-      {children}
+      <Text>{children}</Text>
       {isLoading && <Loading>{loadingText || "Loading..."}</Loading>}
     </>
   );
 
   return (
-    <StyledButton disabled={isDisabled} {...props}>
+    <StyledButton isLoading={isLoading} disabled={isDisabled} {...props}>
       {buttonInner}
     </StyledButton>
   );
